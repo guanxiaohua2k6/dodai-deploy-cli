@@ -1,0 +1,16 @@
+TODO:
+
+Commands:
+
+dodai-deploy node list
+dodai-deploy node create
+dodai-deploy node delete
+
+dodai-deploy software list
+
+dodai-deploy component list
+
+dodai-deploy proposal list
+dodai-deploy proposal create
+dodai-deploy proposal delete
+dodai-deploy proposal update 
