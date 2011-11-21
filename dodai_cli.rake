@@ -81,14 +81,19 @@ EOF
       method = "put"
     end
 
-    if params.include? "id"
-      url = "#{resource}s/#{ENV["id"]}.json"
+    if ["install", "uninstall", "test"].include? action
+        url = "#{resource}s/#{ENV["id"]}/#{action}.json"
     else
-      url = "#{resource}s.json"
+      if params.include? "id"
+        url = "#{resource}s/#{ENV["id"]}.json"
+      else
+        url = "#{resource}s.json"
+      end
     end
 
     params.delete "id"
     data = params.collect{|param| "#{resource}[#{URI.escape(param)}]=#{URI.escape(ENV[param])}"}.join "&" 
+    p [url, method, data]
     [url, method, data]
   end
 end
