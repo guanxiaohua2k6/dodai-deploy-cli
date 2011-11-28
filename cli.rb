@@ -19,7 +19,11 @@ def get_url_and_method_and_data(resource, action, params)
 
   if params.include? "id"
     id = ARGV.shift
-    url = "#{resource}s/#{id}.json"
+    if ["install", "uninstall", "test"].include? action
+      url = "#{resource}s/#{id}/#{action}.json"
+    else
+      url = "#{resource}s/#{id}.json"
+    end
   else
     url = "#{resource}s.json"
   end
